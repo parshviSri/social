@@ -18,10 +18,13 @@
     "axios": "^1.2.0",
     "ethers": "^5.7.2",
     "graphql": "^16.6.0",
+    "hls.js": "^1.2.8",
     "ipfs-http-client": "^59.0.0",
     "next": "13.0.6",
+    "plyr": "^3.7.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hls-player": "^3.0.7",
     "react-redux": "^8.0.5",
     "redux": "^4.2.0",
     "web3modal": "^1.9.10"

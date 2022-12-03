@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { getProfile } from "./profile/profile";
 import * as actions from "../state/action-creator";
 import { login } from "../api/authentication/login";
-import {getPublications} from '../api/publications/getpublication';
-import {getFollowers} from '../api/followers/getFollowers';
-import {getFollowings} from '../api/followings/getFollowings';
-import {getNotification} from '../api/notifications/getNotification';
-import {getPendingFollowerRequest} from '../api/followers/getPendingFollowerRequest';
+import { getPublications } from "../api/publications/getpublication";
+import { getFollowers } from "../api/followers/getFollowers";
+import { getFollowings } from "../api/followings/getFollowings";
+import { getNotification } from "../api/notifications/getNotification";
+import { getPendingFollowerRequest } from "../api/followers/getPendingFollowerRequest";
 import { getNFTCollection } from "../api/nft-collections/getNFTcollections";
 import { getOnChainId } from "../api/onchain/getOnChainIdentity";
 export const Login = (props) => {
@@ -21,7 +21,7 @@ export const Login = (props) => {
     getRecentNotifications,
     _getPendingFollowerRequest,
     _getNFTCollection,
-    _getOnChainId
+    _getOnChainId,
   } = props;
   const handleLogin = async () => {
     const _userAccount = await getAccount();
@@ -31,18 +31,18 @@ export const Login = (props) => {
     getUserProfile(profile);
     const publications = await getPublications(_userAccount, profile.id);
     getRecentPublications(publications);
-    const followers = await getFollowers( profile.id);
+    const followers = await getFollowers(profile.id);
     getRecentFollowers(followers);
     const followings = await getFollowings([_userAccount]);
-    getRecentFollowings(followings)
-    const notifications = await getNotification(_userAccount,profile.id)
-    getRecentNotifications(notifications)
+    getRecentFollowings(followings);
+    const notifications = await getNotification(_userAccount, profile.id);
+    getRecentNotifications(notifications);
     const pendingRequest = await getPendingFollowerRequest();
-   _getPendingFollowerRequest(pendingRequest);
-   const nftCollection = await getNFTCollection(_userAccount);
-   _getNFTCollection(nftCollection);
-   const onchainId = await getOnChainId(profile.id);
-   _getOnChainId(onchainId)
+    _getPendingFollowerRequest(pendingRequest);
+    const nftCollection = await getNFTCollection(_userAccount);
+    _getNFTCollection(nftCollection);
+    const onchainId = await getOnChainId(profile.id);
+    _getOnChainId(onchainId);
   };
   return (
     <div>
@@ -63,6 +63,6 @@ export default connect((st) => ({}), {
   getRecentFollowings: actions.getRecentFollowings,
   getRecentNotifications: actions.getRecentNotifications,
   _getPendingFollowerRequest: actions.getPendingFollowerRequest,
-  _getNFTCollection : actions.getNFTCollectionRequest,
-  _getOnChainId : actions.getOnChainId
+  _getNFTCollection: actions.getNFTCollectionRequest,
+  _getOnChainId: actions.getOnChainId,
 })(Login);

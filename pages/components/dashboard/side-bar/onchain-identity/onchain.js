@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import AddEns from './addEns';
+import AddWorldCoin from './addWorldCoin'
 import {getAddress} from '../../../../api/authentication/ethers.sevice'
 export const Onchain = (props) => {
     const [show,setshow] = useState(false);
@@ -11,28 +12,24 @@ export const Onchain = (props) => {
     }
     console.log(onchainId);
     return (
-      <div>
-        <p>On Chain Id</p>
+      <div className='mt-4 text-center'>
+        <p className=' text-4xl'>On Chain Id</p>
         {onchainId?.onChainIdentity?.ens?.name ? (
           <div>
-            <p>
+            <p className='text-2xl'>
               ENS : {onchainId?.onChainIdentity?.ens?.name}
-              {show ? (
-                add
-              ) : (
-                <button onClick={handleShowAdd}>show address</button>
-              )}
+              
             </p>
           </div>
         ) : (
           <div></div>
         )}
-        {/* <div>
+        <div className='text-2xl mt-2'>
           <div> World Coin : {onchainId?.onChainIdentity?.worldcoin?.isHuman ? "Verfied":
-          // <AddWorldCoin />
+          <AddWorldCoin />
           }
           </div>
-        </div> */}
+        </div>
       </div>
     );
 }

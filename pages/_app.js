@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 import store from "./state/store";
 import { Provider } from "react-redux";
 import Navbar from "./components/navbar";
@@ -12,4 +12,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp
+export default MyApp;

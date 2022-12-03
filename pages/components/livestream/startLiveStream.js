@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "../../state/action-creator";
 
 export const StartLiveStream = (props) => {
-  const {getLiveStreamData} = props;
+  const { getLiveStreamData } = props;
   const videoEl = useRef(null);
   const stream = useRef(null);
 
@@ -23,49 +23,46 @@ export const StartLiveStream = (props) => {
     })();
   });
 
-      const onButtonClick = async () => {
-        const streamInfo = await createLiveStream();
-        getLiveStreamData(streamInfo)
-         const { streamKey } = streamInfo;
+  const onButtonClick = async () => {
+    const streamInfo = await createLiveStream();
+    getLiveStreamData(streamInfo);
+    const { streamKey } = streamInfo;
 
-        if (!stream.current) {
-          alert("Video stream was not started.");
-        }
+    if (!stream.current) {
+      alert("Video stream was not started.");
+    }
 
-        if (!streamKey) {
-          alert("Invalid streamKey.");
-          return;
-        }
+    if (!streamKey) {
+      alert("Invalid streamKey.");
+      return;
+    }
 
-        const client = new Client();
+    const client = new Client();
 
-        const session = client.cast(stream.current, streamKey);
+    const session = client.cast(stream.current, streamKey);
 
-        session.on("open", () => {
-          console.log("Stream started.");
-          alert("Stream started; visit Livepeer Dashboard.");
-        });
+    session.on("open", () => {
+      console.log("Stream started.");
+      alert("Stream started; visit Livepeer Dashboard.");
+    });
 
-        session.on("close", () => {
-          console.log("Stream stopped.");
-        });
+    session.on("close", () => {
+      console.log("Stream stopped.");
+    });
 
-        session.on("error", (err) => {
-          console.log("Stream error.", err.message);
-        });
-      };
+    session.on("error", (err) => {
+      console.log("Stream error.", err.message);
+    });
+  };
 
-      return (
-        <div>
-          <video ref={videoEl} />
-          <button onClick={onButtonClick}>
-            Start
-          </button>
-        </div>
-      );
-}
-
+  return (
+    <div>
+      <video ref={videoEl} />
+      <button onClick={onButtonClick}>Start</button>
+    </div>
+  );
+};
 
 export default connect((st) => ({}), {
-  getLiveStreamData : actions.getLiveStreamData
+  getLiveStreamData: actions.getLiveStreamData,
 })(StartLiveStream);

@@ -1,6 +1,6 @@
 import { getProfileByAddress } from "../../api/profile/address-profile";
 import store from "../../state/store";
-export  async function getProfile() {
+export async function getProfile() {
   const account = store.getState().reducer.accountSlice.userAccount;
   const profile = await getProfileByAddress([account]);
   const updatedProfile = profileData(profile.profiles.items[0]);
