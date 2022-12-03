@@ -4,6 +4,8 @@ import { ipfsUrl } from '../../../utils/ipfs-url';
 
 const NotificationCard = (props) => {
     const { notifications } = props;
+    const defaultPicUrl = notifications?.wallet?.defaultProfile?.picture?.original?.url;
+    const defaultPic = defaultPicUrl&&  ipfsUrl(defaultPicUrl)
     let url = notifications?.profile?.picture?.original?.url?ipfsUrl(
       notifications?.profile?.picture?.original?.url
     ):'/people.png';
@@ -29,15 +31,17 @@ const NotificationCard = (props) => {
             break;
     }
     return (
-      <div className='m-2 border rounded flex'>
+      <div className="m-2 border rounded flex">
         <img
-          src={url}
+          src={defaultPicUrl ? defaultPic : url}
           className="border rounded-full w-8 h-8"
           alt="notification-profile-pic"
         />
-       <p className='text-xsm'> {handle}
-       {content}
-       </p>
+        <p className="text-xsm">
+          {" "}
+          {handle}
+          {content}
+        </p>
       </div>
     );
 }
