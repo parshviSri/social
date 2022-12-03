@@ -11,7 +11,7 @@ export const ipfsUrl =(url) =>{
     
     }
     else{
-        let _url =`https://ipfs.io/${url}`;
+        let _url =`https://ipfs.io/ipfs/${url}`;
         return _url;
     }
     
