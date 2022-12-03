@@ -5,7 +5,6 @@ import React from 'react';
 
 const AddWorldCoin = () => {
   const verfiyUser = async (verificationResponse) => {
-    let iris = await connectContract();
     if (verificationResponse) {
       let merkle_root = verificationResponse?.merkle_root;
       let nullifier_hash = verificationResponse?.nullifier_hash;
@@ -14,8 +13,6 @@ const AddWorldCoin = () => {
       const result =await getworldCoinVerification(proof,nullifier_hash,merkle_root);
       console.log(result);
       
-      setVerify(true);
-
     } else {
       console.error("Some error has occured!!");
     }
