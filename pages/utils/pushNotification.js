@@ -1,6 +1,6 @@
 import * as EpnsAPI from "@epnsproject/sdk-restapi";
 import { ethers } from "ethers";
-import { getAccount } from "./ether";
+import { getAccount } from "../api/authentication/ethers.sevice";
 const PK = process.env.NEXT_PUBLIC_PK;
 const Pkey = `0x${PK}`;
 const signer = new ethers.Wallet(Pkey);
