@@ -30,12 +30,16 @@ export const ProfileBar = (props) => {
 
         <div className="flex text-center border">
           <ProfileIcon profileImg={profileurl} />
-          <div>
+          <div className="ml-16 text-2xl">
             <p>{name}</p>
             <p>{handle} </p>
           </div>
         </div>
-        {!searchProfile?.profileId && <Notifications notis={notifications?.result}/>}
+        <div className='m-4'>
+          {!searchProfile?.profileId && (
+            <Notifications notis={notifications?.result} />
+          )}
+        </div>
       </div>
     );
 }

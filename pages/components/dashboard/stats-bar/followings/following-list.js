@@ -5,7 +5,7 @@ export const FollowingList = (props) => {
   const items = props?.following?.items;
   return (
     <div className="text-center">
-      <p className="text-2xl m-4">People You Follow</p>
+      <p className="text-2xl m-4">Followings</p>
       <div className="flex flex-row">
         {items &&
           items.map((fllwr) => (

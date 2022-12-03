@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import Image from 'next/image';
-import * as names from '../data/apps-name.json';
 import * as actions from "../state/action-creator";
 import { connect } from "react-redux";
 import {createLiveStream} from '../api/livestream/livestream'
@@ -39,18 +38,7 @@ export const HeadingBand = (props) => {
               <span className="bg-[#DCE8FE] border rounded-xl pl-2 pr-2">
                 One simple dashboard
               </span>
-              <div className="flex">
-                {names.map((key) => (
-                  <Image
-                    key={key.name}
-                    src={`/${key.img}`}
-                    width={30}
-                    height={30}
-                    alt={key.name}
-                    className="border rounded-full"
-                  />
-                ))}
-              </div>
+              
             </div>
           </div>
           <div className="basis-1/2 ">

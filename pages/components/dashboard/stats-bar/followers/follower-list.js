@@ -5,7 +5,7 @@ export const FollowerList = (props) => {
       const items = props?.followers?.items ;
     return (
       <div className='text-center'>
-        <p className="text-2xl m-4">Wow new followers</p>
+        <p className="text-2xl m-4">Recent Followers</p>
         <div className="flex flex-row">
           {items && items.map((fllwr) => (
             <FollowerIcon

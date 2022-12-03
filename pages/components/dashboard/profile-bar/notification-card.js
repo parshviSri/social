@@ -34,10 +34,10 @@ const NotificationCard = (props) => {
       <div className="m-2 border rounded flex">
         <img
           src={defaultPicUrl ? defaultPic : url}
-          className="border rounded-full w-8 h-8"
+          className="border rounded-full w-8 h-8 "
           alt="notification-profile-pic"
         />
-        <p className="text-xsm">
+        <p className="text-xsm m-3">
           {" "}
           {handle}
           {content}

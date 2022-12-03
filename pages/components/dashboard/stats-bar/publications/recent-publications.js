@@ -5,7 +5,7 @@ export const RecentPublications = () => {
   return (
     <div className="bg-white">
       <p className=" font-bold text-2xl text-gray-800">
-        Your Recent Publications
+        Recent Publications
       </p>
       <CreatePost />
     </div>

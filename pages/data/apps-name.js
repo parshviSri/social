@@ -1,4 +1,4 @@
- [
+  export default   appsname =[
     {
         "name": "memester",
         "link" :"https://memester.xyz/",

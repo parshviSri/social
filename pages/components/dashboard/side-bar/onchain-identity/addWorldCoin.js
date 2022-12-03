@@ -19,7 +19,7 @@ const AddWorldCoin = () => {
   };
   return (
     <div>
-      <div>
+      <div className=" flex justify-center">
         <WorldIDWidget
           actionId="wid_staging_036bd1d06ba1d6385bbe360d263f8d5e" // obtain this from developer.worldcoin.org
           signal="my_signal"
